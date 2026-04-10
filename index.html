@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>TESDA PTC Calumpit | Official Online Registration Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Collaborative Blue & Red gradient background with subtle pattern */
+            background: linear-gradient(125deg, #0a2f6c 0%, #9e2a2a 100%);
+            font-family: 'Inter', sans-serif;
+            padding: 2rem 1.5rem;
+            color: #1e2a3e;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        /* Decorative Philippine sunburst subtle overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.08"><path fill="white" d="M50,0 L61,35 L97,35 L68,57 L79,92 L50,70 L21,92 L32,57 L3,35 L39,35 Z"/><circle cx="50" cy="48" r="8" fill="white"/></svg>');
+            background-repeat: repeat;
+            background-size: 48px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            transition: all 0.2s ease;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* REDESIGNED HEADER: Collaboration of Blue & Red */
+        .tesda-header {
+            background: linear-gradient(98deg, #0b2b5c 0%, #aa2e2e 100%);
+            padding: 1.5rem 2.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-title h1 {
+            font-weight: 700;
+            font-size: 1.9rem;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 0.5rem 0 0.2rem;
+        }
+
+        .header-title h1 span {
+            background: #f5b042;
+            font-size: 1rem;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            color: #1e2a3e;
+            font-weight: 600;
+        }
+
+        .tesda-header p {
+            margin-top: 0.4rem;
+            opacity: 0.9;
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+        }
+.header-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.header-title-row h1 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+}
+
+.header-logo {
+    height: 110px;
+    width: 110px;
+    object-fit: contain;
+}
+
+.header-logos-right {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+        .form-body {
+            padding: 2rem 2.5rem;
+        }
+
+        .confirmation-body {
+            padding: 2.5rem 2.5rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            border-left: 5px solid #aa2e2e;
+            padding-left: 1rem;
+            margin: 1.5rem 0 1.2rem 0;
+            color: #0b2b5c;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-field label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #2c4b3e;
+        }
+
+        input, select, textarea {
+            padding: 0.85rem 1rem;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            font-family: 'Inter', monospace;
+            transition: 0.2s;
+            background: #fefefe;
+            width: 100%;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #aa2e2e;
+            box-shadow: 0 0 0 3px rgba(170,46,46,0.2);
+        }
+
+        .qual-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.8rem 1.2rem;
+            background: #f9fafc;
+            padding: 1.4rem 1.8rem;
+            border-radius: 24px;
+            border: 1px solid #eef2f6;
+        }
+
+        .qual-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .qual-item input {
+            width: 18px;
+            height: 18px;
+            accent-color: #aa2e2e;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .qual-item label {
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: none;
+            letter-spacing: normal;
+            color: #1f2f3a;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+            background: #f9fafc;
+            padding: 0.6rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .radio-group div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .radio-group input {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+        }
+
+        .checkbox-group {
+            background: #f9fafc;
+            padding: 1.2rem 1.5rem;
+            border-radius: 24px;
+            border: 1px solid #e2e8f0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .check-item input {
+            width: 18px;
+            height: 18px;
+            accent-color: #0b2b5c;
+        }
+
+        button.submit-btn {
+            background: linear-gradient(95deg, #0b2b5c, #aa2e2e);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            width: 100%;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.3px;
+        }
+
+        button.submit-btn:hover {
+            background: linear-gradient(95deg, #1f3f7a, #c23e3e);
+            transform: scale(0.98);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        button.submit-btn:disabled {
+            background: #9bb7ae;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: #2c5f4d;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1.5rem;
+        }
+
+        .btn-secondary:hover {
+            background: #1a4738;
+            transform: scale(0.98);
+        }
+        
+        .btn-clear {
+            background: #7f8c8d;
+            margin-left: 0;
+        }
+        
+        .btn-clear:hover {
+            background: #5d6e6f;
+        }
+        
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .button-group .btn-secondary {
+            margin-top: 0;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .button-group .submit-btn {
+            margin-top: 0;
+            flex: 2;
+        }
+
+        .check-icon {
+            font-size: 4rem;
+            background: linear-gradient(135deg, #0b2b5c, #aa2e2e);
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .confirmation-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0b2b5c;
+            margin-bottom: 1rem;
+        }
+
+        .confirmation-message {
+            font-size: 1.1rem;
+            color: #aa2e2e;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .info-card {
+            background: #f4f9f6;
+            border-radius: 24px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: left;
+            border-left: 5px solid #f5b042;
+        }
+
+        .info-card p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .info-card strong {
+            color: #0b2b5c;
+        }
+
+        .ref-number {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 1rem 0;
+            letter-spacing: 1px;
+            border: 1px solid #cbd5e0;
+        }
+
+        footer {
+            background: #f4f7fa;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.8rem;
+            color: #4a5b6e;
+            border-top: 1px solid #e2edf2;
+        }
+
+        .error-border {
+            border-color: #e53e3e !important;
+            background-color: #fff5f5 !important;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        small.hint {
+            font-size: 0.7rem;
+            color: #6c7a89;
+            margin-top: 4px;
+            display: block;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Privacy Side-by-Side Layout */
+        .privacy-split {
+            display: flex;
+            gap: 2rem;
+            margin: 1.5rem 0 1.2rem;
+            flex-wrap: wrap;
+        }
+        
+        .privacy-card {
+            background: #fefaf0;
+            border-left: 5px solid #f5b042;
+            padding: 1.8rem;
+            border-radius: 24px;
+            line-height: 1.6;
+            flex: 2;
+        }
+        
+        .privacy-card p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: #2d3e50;
+        }
+        
+        .agree-sidebox {
+            background: #f4f9f6;
+            border-radius: 24px;
+            padding: 1.8rem;
+            border: 1px solid #d4e2dc;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        
+        .agree-sidebox .agree-header {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #0b3b2f;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .agree-sidebox .agree-text {
+            font-size: 0.9rem;
+            color: #2d4a3b;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+        
+        .agree-sidebox input {
+            width: 24px;
+            height: 24px;
+            accent-color: #0b3b2f;
+            margin-right: 10px;
+            transform: scale(1.1);
+        }
+        
+        .agree-sidebox .checkbox-row {
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+        
+        .next-btn {
+            background: linear-gradient(95deg, #0b2b5c, #aa2e2e);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            width: 100%;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 0.5rem;
+        }
+        
+        .next-btn:disabled {
+            background: #9bb7ae;
+            cursor: not-allowed;
+        }
+        
+        .back-link {
+            background: transparent;
+            color: #0b2b5c;
+            border: 2px solid #0b2b5c;
+            margin-top: 0;
+        }
+        
+        .back-link:hover {
+            background: #e9f3ef;
+            transform: none;
+        }
+
+        @media (max-width: 880px) {
+            .privacy-split {
+                flex-direction: column;
+            }
+            .agree-sidebox {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 780px) {
+            .form-body, .confirmation-body {
+                padding: 1.5rem;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .qual-grid, .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+            .confirmation-title {
+                font-size: 1.5rem;
+            }
+            .tesda-header h1 {
+                font-size: 1.4rem;
+            }
+            .button-group {
+                flex-direction: column;
+            }
+            .button-group .btn-secondary, .button-group .submit-btn {
+                width: 100%;
+            }
+@media (max-width: 768px) {
+    .header-title-row {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .header-logos-right {
+        justify-content: center;
+    }
+
+    .header-logo {
+        height: 45px;
+    }
+
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1: DATA PRIVACY CONSENT WITH SIDE BOX -->
+<div id="frontPage" class="page-container">
+    <div class="tesda-header">
+    <div class="header-title">
+
+        <div class="header-title-row">
+
+            <!-- LOGO 1 (left) -->
+            <img src="ptc-logo.png" class="header-logo" alt="Logo 1">
+
+            <!-- TITLE -->
+            <h1>
+                TESDA PTC Calumpit
+                <span>Online Registration</span>
+            </h1>
+
+            <!-- LOGO GROUP (right side) -->
+            <div class="header-logos-right">
+                <img src="logo 1.png" class="header-logo" alt="Logo 2">
+                <img src="logo 2.png" class="header-logo" alt="Logo 3">
+            </div>
+
+        </div>
+    
+
+</h1>
+            <p>Training for Empowerment | Register for TVET Programs Online</p>
+        </div>
+    </div>
+    <div class="form-body">
+        <div class="section-title">🔒 DATA PRIVACY NOTICE</div>
+        
+        <div class="privacy-split">
+            <div class="privacy-card">
+                <p>In accordance with the <strong>Data Privacy Act of 2012 (Republic Act No. 10173)</strong>, the Technical Education and Skills Development Authority (TESDA) upholds the highest standards of data protection for all individuals who engage with its programs, services, and electronic platforms. This notice outlines how TESDA collects, processes, stores, and safeguards personal data submitted through this form, ensuring transparency and compliance with Philippine data privacy laws.</p>
+                <p>Your personal information will be used solely for processing your training and scholarship application, enrollment verification, and communication of relevant updates from TESDA PTC Calumpit. TESDA implements strict security measures to prevent unauthorized access, disclosure, or misuse of your data. By proceeding, you acknowledge that you have read and understood this privacy notice.</p>
+            </div>
+            
+            <div class="agree-sidebox">
+                <div class="agree-header">
+                    📋 Your Consent
+                </div>
+                <div class="agree-text">
+                    I agree to TESDA’s data privacy terms and authorize the handling of my submitted information for the purpose of registration, training, and scholarship processing.
+                </div>
+                <div class="checkbox-row">
+                    <input type="checkbox" id="agreeCheckbox">
+                    <label for="agreeCheckbox" style="font-weight: 600; color: #1e3a3a; cursor: pointer;">I have read and I agree</label>
+                </div>
+            </div>
+        </div>
+        
+        <button id="nextButton" class="next-btn" disabled>PROCEED TO REGISTRATION FORM</button>
+    </div>
+    <footer>
+        🇵🇭 TESDA PTC Calumpit – Data Privacy Act Compliant | UTPRAS Program
+    </footer>
+</div>
+
+<!-- PAGE 2: REGISTRATION FORM -->
+<div id="registrationPage" class="page-container hidden">
+    <<div class="tesda-header">
+    <div class="header-title">
+
+        <div class="header-title-row">
+
+            <!-- LOGO 1 (left) -->
+            <img src="ptc-logo.png" class="header-logo" alt="Logo 1">
+
+            <!-- TITLE -->
+            <h1>
+                 TESDA PTC Calumpit
+                <span>Online Registration</span>
+            </h1>
+
+            <!-- LOGO GROUP (right side) -->
+            <div class="header-logos-right">
+                <img src="logo 1.png" class="header-logo" alt="Logo 2">
+                <img src="logo 2.png" class="header-logo" alt="Logo 3">
+            </div>
+
+        </div>
+</h1>
+
+            <p>Training for Empowerment | Register for TVET Programs Online</p>
+        </div>
+    </div>
+    <div class="form-body">
+        <form id="enrollmentForm" novalidate>
+            <div class="section-title">📌 QUALIFICATION *</div>
+            <div class="qual-grid" id="qualificationsGroup">
+                <div class="qual-item"><input type="checkbox" value="Electrical Installation Maintenance (EIM) NC ll" id="q_eim2"> <label for="q_eim2">Electrical Installation Maintenance (EIM) NC ll</label></div>
+                <div class="qual-item"><input type="checkbox" value="Electrical Installation Maintenance (EIM) NC lll" id="q_eim3"> <label for="q_eim3">Electrical Installation Maintenance (EIM) NC lll</label></div>
+                <div class="qual-item"><input type="checkbox" value="Shielded metal arc welding (SMAW) NC l" id="q_smaw1"> <label for="q_smaw1">Shielded metal arc welding (SMAW) NC l</label></div>
+                <div class="qual-item"><input type="checkbox" value="Shielded metal arc welding (SMAW) NC ll" id="q_smaw2"> <label for="q_smaw2">Shielded metal arc welding (SMAW) NC ll</label></div>
+                <div class="qual-item"><input type="checkbox" value="Dressmaking NC ll" id="q_dress"> <label for="q_dress">Dressmaking NC ll</label></div>
+                <div class="qual-item"><input type="checkbox" value="Driving NC II" id="q_driving"> <label for="q_driving">Driving NC II</label></div>
+                <div class="qual-item"><input type="checkbox" value="PV Systems Installation NC II" id="q_pv_inst"> <label for="q_pv_inst">PV Systems Installation NC II</label></div>
+                <div class="qual-item"><input type="checkbox" value="PV Systems Servicing NC III" id="q_pv_serv"> <label for="q_pv_serv">PV Systems Servicing NC III</label></div>
+                <div class="qual-item"><input type="checkbox" value="Solar Powered Irrigation System (SPIS)" id="q_spis"> <label for="q_spis">Solar Powered Irrigation System (SPIS)</label></div>
+                <div class="qual-item"><input type="checkbox" value="Produce Organic Concoctions and Extracts Leading to OAP NC II" id="q_organic"> <label for="q_organic">Produce Organic Concoctions and Extracts Leading to OAP NC II</label></div>
+                <div class="qual-item"><input type="checkbox" value="Produce foods by Sugar Concentrates Leading to Food Processing NC II" id="q_food"> <label for="q_food">Produce foods by Sugar Concentrates Leading to Food Processing NC II</label></div>
+                <div class="qual-item"><input type="checkbox" value="Barangay Health Service NC II" id="q_health"> <label for="q_health">Barangay Health Service NC II</label></div>
+                <div class="qual-item"><input type="checkbox" value="Entrepreneurship PQF level IV" id="q_entrep"> <label for="q_entrep">Entrepreneurship PQF level IV</label></div>
+                <div class="qual-item"><input type="checkbox" value="Community Based Trainers Methodology (CBTMC)" id="q_cbtmc"> <label for="q_cbtmc">Community Based Trainers Methodology (CBTMC)</label></div>
+                <div class="qual-item"><input type="checkbox" value="Develop Learning Materials for E-learning Leading to TM II" id="q_tm2"> <label for="q_tm2">Develop Learning Materials for E-learning Leading to TM II</label></div>
+                <div class="qual-item"><input type="checkbox" value="Facilitate e-Learning Sessions (FeLS) Leading to TM I" id="q_fels"> <label for="q_fels">Facilitate e-Learning Sessions (FeLS) Leading to TM I</label></div>
+            </div>
+            <small class="hint">✔ Select at least one qualification training program</small>
+
+            <div class="section-title">👤 Personal Information</div>
+            <div class="grid-2">
+                <div class="form-field"><label>Full Name (First Middle Last) *</label><input type="text" id="fullname" placeholder="e.g., JUAN B. CRUZ"></div>
+                <div class="form-field"><label>Middle Name *</label><input type="text" id="middlename" placeholder="e.g., Bautista"></div>
+                <div class="form-field"><label>Phone number *</label><input type="tel" id="phone" placeholder="09XX XXX XXXX"></div>
+                <div class="form-field"><label>Complete mailing/residential address *</label><input type="text" id="address" placeholder="Street, Barangay, Municipality, Province"></div>
+                <div class="form-field"><label>Email Address *</label><input type="email" id="email" placeholder="juancruz11@gmail.com"></div>
+                <div class="form-field"><label>Sex: *</label>
+                    <div class="radio-group">
+                        <div><input type="radio" name="sex" value="Male" id="male"> <label for="male">Male</label></div>
+                        <div><input type="radio" name="sex" value="Female" id="female"> <label for="female">Female</label></div>
+                    </div>
+                </div>
+                <div class="form-field"><label>Date of Birth *</label><input type="date" id="dob"></div>
+                <div class="form-field"><label>Age *</label><input type="number" id="age" placeholder="e.g., 25"></div>
+                <div class="form-field"><label>CIVIL STATUS *</label>
+                    <select id="civilstatus">
+                        <option value="" disabled selected>-- Select --</option>
+                        <option>Single</option>
+                        <option>Married</option>
+                        <option>Divorced</option>
+                        <option>Widowed</option>
+                        <option>Separated</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section-title">Documentary Requirements *</div>
+            <div class="checkbox-group" id="requirementsGroup">
+                <div class="check-item"><input type="checkbox" value="NONE" id="req_none"> <label for="req_none">NONE</label></div>
+                <div class="check-item"><input type="checkbox" value="COPY OF BIRTH CERTIFICATE" id="req_birth"> <label for="req_birth">COPY OF BIRTH CERTIFICATE</label></div>
+                <div class="check-item"><input type="checkbox" value="HIGH SCHOOL/ALS RATING CARD/DIPLOMA/TOR" id="req_hs"> <label for="req_hs">HIGH SCHOOL/ALS RATING CARD/DIPLOMA/TOR</label></div>
+                <div class="check-item"><input type="checkbox" value="BARANGAY CLEARANCE" id="req_barangay"> <label for="req_barangay">BARANGAY CLEARANCE</label></div>
+                <div class="check-item"><input type="checkbox" value="BARANGAY HEALTH CERTIFICATE OR VACCINATION CARD" id="req_healthcert"> <label for="req_healthcert">BARANGAY HEALTH CERTIFICATE OR VACCINATION CARD</label></div>
+                <div class="check-item"><input type="checkbox" value="1X1 ID PICTURE ( WHITE BACKGROUND WITH COLLAR)" id="req_id"> <label for="req_id">1X1 ID PICTURE (WHITE BACKGROUND WITH COLLAR)</label></div>
+                <div class="check-item"><input type="checkbox" value="COPY OF MARRIAGE CERTIFICATE (FOR MARRIED WOMEN)" id="req_marriage"> <label for="req_marriage">COPY OF MARRIAGE CERTIFICATE (FOR MARRIED WOMEN)</label></div>
+            </div>
+            <small class="hint">📄 Please check all documents you are submitting / have available.</small>
+
+            <div class="button-group">
+                <button type="button" id="clearFormBtn" class="btn-secondary btn-clear">CLEAR FORM</button>
+                <button type="submit" class="submit-btn" id="submitBtn">SUBMIT ONLINE REGISTRATION</button>
+            </div>
+            <button type="button" id="backToPrivacyBtn" class="btn-secondary back-link" style="width:100%; margin-top: 1rem;">◀ BACK TO PRIVACY NOTICE</button>
+        </form>
+    </div>
+    <footer>
+        🇵🇭 TESDA PTC Calumpit – Online Registration for Training | UTPRAS Program
+    </footer>
+</div>
+
+<!-- PAGE 3: CONFIRMATION -->
+<div id="confirmationContainer" class="page-container hidden">
+    <div class="tesda-header">
+    <div class="header-title">
+
+        <div class="header-title-row">
+
+            <!-- LOGO 1 (left) -->
+            <img src="ptc-logo.png" class="header-logo" alt="Logo 1">
+
+            <!-- TITLE -->
+            <h1>
+                 TESDA PTC Calumpit
+                <span>Online Registration</span>
+            </h1>
+
+            <!-- LOGO GROUP (right side) -->
+            <div class="header-logos-right">
+                <img src="logo 1.png" class="header-logo" alt="Logo 2">
+                <img src="logo 2.png" class="header-logo" alt="Logo 3">
+            </div>
+
+        </div>
+
+</h1>
+
+            <p>Training for Empowerment | Your journey starts here</p>
+        </div>
+    </div>
+    <div class="confirmation-body">
+        <div class="check-icon">✓</div>
+        <div class="confirmation-title">Thank You for Completing Your Registration!</div>
+        <div class="confirmation-message">
+            Your application has been successfully submitted to TESDA PTC-CALUMPIT.
+        </div>
+        
+        <div class="info-card">
+            <p><strong>📛 Full Name:</strong> <span id="confirmName">—</span></p>
+            <p><strong>📞 Contact:</strong> <span id="confirmPhone">—</span></p>
+            <p><strong>📧 Email:</strong> <span id="confirmEmail">—</span></p>
+            <p><strong>🎓 Selected Qualification(s):</strong> <span id="confirmQual">—</span></p>
+            <p><strong>📅 Registration Date:</strong> <span id="confirmDate">—</span></p>
+        </div>
+        
+        <div style="background: #e6f4ea; border-radius: 20px; padding: 1rem; margin: 1rem 0;">
+            <p style="font-weight: 600; margin-bottom: 0.5rem;">📢 WHAT'S NEXT?</p>
+            <p style="font-size: 0.95rem;">✅ You are now officially registered in the training program.<br>
+            ✅ Please wait for a call, text message, or email from TESDA PTC-Calumpit regarding your training schedule.<br>
+            ✅ Keep your reference number for any follow-up inquiries.</p>
+        </div>
+        
+        <div class="ref-number" id="referenceNumber">REF: TESPTC-XXXXXXXX</div>
+        
+        <p style="margin: 1rem 0; color: #4a5b6e; font-size: 0.9rem;">You may close this page or print this confirmation for your records.</p>
+        
+        <button id="newRegistrationBtn" class="btn-secondary">➕ Register Another Applicant</button>
+    </div>
+    <footer>
+        🇵🇭 TESDA PTC Calumpit – Online Registration for Training | UTPRAS Program
+    </footer>
+</div>
+
+<script>
+    const GOOGLE_SHEETS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbzeo3Us9DKHIEOGJL7v5_N018fj9lbF--F5iSSN89tPh1981F_2farvbTRr57YoCCNQIg/exec";
+    
+    (function() {
+        const frontPage = document.getElementById('frontPage');
+        const registrationPage = document.getElementById('registrationPage');
+        const confirmationContainer = document.getElementById('confirmationContainer');
+        const agreeCheckbox = document.getElementById('agreeCheckbox');
+        const nextButton = document.getElementById('nextButton');
+        const backToPrivacyBtn = document.getElementById('backToPrivacyBtn');
+        const form = document.getElementById('enrollmentForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const clearFormBtn = document.getElementById('clearFormBtn');
+        
+        if (agreeCheckbox) agreeCheckbox.addEventListener('change', () => { nextButton.disabled = !agreeCheckbox.checked; });
+        nextButton.addEventListener('click', () => { if (agreeCheckbox.checked) { frontPage.classList.add('hidden'); registrationPage.classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); } });
+        backToPrivacyBtn.addEventListener('click', () => { registrationPage.classList.add('hidden'); frontPage.classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        
+        function generateReference() { const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ0123456789'; let ref = 'TESPTC-'; for (let i = 0; i < 8; i++) ref += chars.charAt(Math.floor(Math.random() * chars.length)); return ref; }
+        
+        function collectFormData() {
+            const qualChecks = document.querySelectorAll('#qualificationsGroup input[type="checkbox"]');
+            let selectedQual = []; qualChecks.forEach(cb => { if (cb.checked) selectedQual.push(cb.value); });
+            if (selectedQual.length === 0) { alert('❌ Please select at least ONE Qualification.'); return null; }
+            const fullname = document.getElementById('fullname').value.trim(), middlename = document.getElementById('middlename').value.trim(), phone = document.getElementById('phone').value.trim(), address = document.getElementById('address').value.trim(), email = document.getElementById('email').value.trim(), sexRadio = document.querySelector('input[name="sex"]:checked'), dob = document.getElementById('dob').value, ageRaw = document.getElementById('age').value.trim(), civil = document.getElementById('civilstatus').value;
+            if (!fullname) { alert('Full Name required'); return null; } if (!middlename) { alert('Middle Name required'); return null; } if (!phone) { alert('Phone required'); return null; } if (!address) { alert('Address required'); return null; } if (!email || !email.includes('@')) { alert('Valid email required'); return null; } if (!sexRadio) { alert('Select sex'); return null; } if (!dob) { alert('Date of birth required'); return null; } if (!ageRaw || isNaN(parseInt(ageRaw)) || parseInt(ageRaw) < 15 || parseInt(ageRaw) > 100) { alert('Valid age 15-100 required'); return null; } if (!civil || civil === "") { alert('Civil status required'); return null; }
+            const reqCheckboxes = document.querySelectorAll('#requirementsGroup input[type="checkbox"]'); let selectedDocs = []; reqCheckboxes.forEach(cb => { if (cb.checked) selectedDocs.push(cb.value); }); if (selectedDocs.length === 0) { alert('Please check at least one documentary requirement.'); return null; }
+            return { timestamp: new Date().toLocaleString('en-PH', { timeZone: 'Asia/Manila' }), fullname, middlename, phone, address, email, sex: sexRadio.value, dob, age: parseInt(ageRaw), civil, qualifications: selectedQual.join(', '), requirements: selectedDocs.join(', '), reference: generateReference() };
+        }
+        
+        async function submitToGoogleSheets(formData) { try { const payload = new URLSearchParams(); Object.keys(formData).forEach(key => payload.append(key, formData[key])); await fetch(GOOGLE_SHEETS_WEBAPP_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: payload.toString() }); return { success: true }; } catch (error) { console.error(error); return { success: false, error: error.message }; } }
+        
+        function showConfirmation(data) { document.getElementById('confirmName').innerText = data.fullname + ' ' + data.middlename; document.getElementById('confirmPhone').innerText = data.phone; document.getElementById('confirmEmail').innerText = data.email; let qualText = data.qualifications; if (qualText.length > 85) qualText = qualText.substring(0, 82) + '...'; document.getElementById('confirmQual').innerText = qualText; document.getElementById('confirmDate').innerText = data.timestamp; document.getElementById('referenceNumber').innerText = data.reference; registrationPage.classList.add('hidden'); confirmationContainer.classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        
+        function resetRegistrationForm() { form.reset(); document.querySelectorAll('#qualificationsGroup input[type="checkbox"]').forEach(cb => cb.checked = false); document.querySelectorAll('#requirementsGroup input[type="checkbox"]').forEach(cb => cb.checked = false); document.querySelectorAll('input[name="sex"]').forEach(radio => radio.checked = false); document.getElementById('civilstatus').selectedIndex = 0; document.getElementById('dob').value = ''; document.getElementById('age').value = ''; }
+        
+        clearFormBtn.addEventListener('click', () => { if (confirm("⚠️ CLEAR FORM? This will reset all fields.")) resetRegistrationForm(); });
+        form.addEventListener('submit', async (e) => { e.preventDefault(); const formData = collectFormData(); if (!formData) return; submitBtn.disabled = true; const originalText = submitBtn.innerHTML; submitBtn.innerHTML = '<span class="loading-spinner"></span> SUBMITTING...'; await submitToGoogleSheets(formData); showConfirmation(formData); submitBtn.disabled = false; submitBtn.innerHTML = originalText; });
+        document.getElementById('newRegistrationBtn').addEventListener('click', () => { resetRegistrationForm(); confirmationContainer.classList.add('hidden'); frontPage.classList.remove('hidden'); if (agreeCheckbox) agreeCheckbox.checked = false; nextButton.disabled = true; submitBtn.disabled = false; submitBtn.innerHTML = 'SUBMIT ONLINE REGISTRATION'; window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        const noneCheckbox = document.getElementById('req_none'), otherReq = document.querySelectorAll('#requirementsGroup input[type="checkbox"]:not(#req_none)');
+        if (noneCheckbox) noneCheckbox.addEventListener('change', function() { if (noneCheckbox.checked) otherReq.forEach(cb => cb.checked = false); });
+        otherReq.forEach(cb => { cb.addEventListener('change', function() { if (cb.checked && noneCheckbox) noneCheckbox.checked = false; }); });
+        document.getElementById('dob').addEventListener('change', function() { const birthDate = new Date(this.value); const today = new Date(); let age = today.getFullYear() - birthDate.getFullYear(); const monthDiff = today.getMonth() - birthDate.getMonth(); if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) age--; if (age >= 0 && age <= 120) document.getElementById('age').value = age; else document.getElementById('age').value = ''; });
+    })();
+</script>
+</body>
+</html>
